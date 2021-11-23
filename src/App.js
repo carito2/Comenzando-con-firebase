@@ -54,6 +54,13 @@ function App() {
       setTweets([newTweet, ...tweets]);
     })
   }
+  const deleteTweet = (id) => {
+    const newTweets = tweets.filter((tweet) => {
+      return tweet.id !== id;
+    })
+    setTweets(newTweets);
+    firestore.doc(`tweets/${id}`).delete();
+  }
 
   return (
     <div className="App">
@@ -64,7 +71,7 @@ function App() {
           <button onClick={handleButton}>Enviar Tweet</button>
         </div>
       </form>
-      <Tweets tweets={tweets}/>
+      <Tweets tweets={tweets} deleteTweet={deleteTweet}/>
     </div>
   );
 }
