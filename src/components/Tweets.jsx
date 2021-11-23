@@ -8,7 +8,7 @@ function Tweets ({tweets}) {
                 console.log(tweets);
                 return(
                 <div key={tweet.id} className="tweetsCard">
-                    <h2>Autor: {tweet.autor}</h2>
+                    <h3>Autor: {tweet.autor}</h3>
                     <p>Mensaje: {tweet.tweet}</p>
                 </div>
                 )  
